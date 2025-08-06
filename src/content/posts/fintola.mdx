@@ -1,0 +1,34 @@
+---
+title: AI-Powered Trading Signals Platform – Fintola 2.0
+summary: Fintola 2.0 is an AI-driven trading signals platform that provides intraday and delivery strategies for Indian stocks, visualized using lightweight charts.
+author: 'Bhavesh'
+publishedAt: '2025-08-08'
+---
+
+Fintola 2.0 is a smart, AI-assisted platform that provides actionable trading signals for Indian stock market participants. Built with performance and clarity in mind, it uses AI-generated suggestions combined with a custom strategy to deliver both **intraday** and **delivery-based** trading insights.
+
+## 🔍 What is Fintola 2.0?
+
+Fintola 2.0 is a web-based trading assistant focused on Indian equities. It helps traders and retail investors by offering:
+
+- **AI-suggested trade entries and exits**
+- **Custom strategies** for both intraday and positional delivery
+- **Lightweight candlestick charts** for efficient visualization
+- A clear, intuitive UI tailored for quick decisions
+
+## ⚙️ Tech Stack
+
+The application is powered by a modern and scalable tech stack:
+
+- **Next.js** for fast, SEO-friendly web development
+- **Tailwind CSS** for a responsive UI
+- **Lightweight Charts** by TradingView for accurate and minimal chart rendering
+- **AI Logic Engine** for generating trade signals (custom-built)
+
+```js
+// Example: Fetching AI Signal Data (mock snippet)
+export async function getAISignals(symbol) {
+  const res = await fetch(`/api/signals?symbol=${symbol}`);
+  const data = await res.json();
+  return data.signals;
+}
