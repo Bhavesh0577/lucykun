@@ -8,8 +8,8 @@ import { formatDate } from '@/lib/utils'
 import MDXContent from '@/components/mdx-content'
 import { Badge } from '@/components/ui/badge'
 
-export default async function Project({params}: {params: {slug: string}}) {
-    const {slug} = params
+export default async function Project({params}: {params: Promise<{slug: string}>}) {
+    const {slug} = await params
     const project = await getProjectBySlug(slug)
     
     if (!project) {
