@@ -34,7 +34,7 @@ export default async function Project({params}: {params: Promise<{slug: string}>
 
     return (
         <section className='pb-24 pt-32'>
-            <div className='container max-w-4xl'>
+            <div className='container max-w-3xl'>
                 <Link
                     href='/projects'
                     className='mb-8 inline-flex items-center gap-2 text-sm font-light text-muted-foreground transition-colors hover:text-foreground'
@@ -44,7 +44,7 @@ export default async function Project({params}: {params: Promise<{slug: string}>
                 </Link>
 
                 {image && (
-                    <div className='relative mb-8 h-80 w-full overflow-hidden rounded-lg md:h-96'>
+                    <div className='relative mb-6 h-96 w-full overflow-hidden rounded-lg'>
                         <Image
                             src={image}
                             alt={title || ''}
@@ -54,7 +54,7 @@ export default async function Project({params}: {params: Promise<{slug: string}>
                     </div>
                 )}
 
-                <header className='mb-8'>
+                <header>
                     <div className='mb-4 flex flex-wrap items-center gap-3'>
                         {featured && (
                             <Badge variant="secondary" className='bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'>
@@ -73,15 +73,15 @@ export default async function Project({params}: {params: Promise<{slug: string}>
                         )}
                     </div>
 
-                    <h1 className='title mb-4'>{title}</h1>
+                    <h1 className='title'>{title}</h1>
                     
                     {description && (
-                        <p className='text-lg text-muted-foreground mb-6'>
+                        <p className='mt-3 text-xs text-muted-foreground'>
                             {description}
                         </p>
                     )}
 
-                    <div className='flex flex-wrap items-center gap-4 mb-6'>
+                    <div className='flex flex-wrap items-center gap-4 mt-6'>
                         {githubUrl && (
                             <a
                                 href={githubUrl}
@@ -107,7 +107,7 @@ export default async function Project({params}: {params: Promise<{slug: string}>
                     </div>
 
                     {technologies && technologies.length > 0 && (
-                        <div className='mb-6'>
+                        <div className='mt-6'>
                             <h3 className='mb-3 text-sm font-medium text-muted-foreground'>Technologies Used</h3>
                             <div className='flex flex-wrap gap-2'>
                                 {technologies.map((tech, index) => (
@@ -123,13 +123,13 @@ export default async function Project({params}: {params: Promise<{slug: string}>
                     )}
 
                     {createdAt && (
-                        <p className='text-sm text-muted-foreground'>
+                        <p className='mt-3 text-xs text-muted-foreground'>
                             Created on {formatDate(createdAt)}
                         </p>
                     )}
                 </header>
 
-                <main className='prose prose-lg dark:prose-invert max-w-none'>
+                <main className='prose mt-16 dark:prose-invert'>
                     <MDXContent source={content} />
                 </main>
             </div>
