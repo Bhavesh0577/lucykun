@@ -24,7 +24,7 @@ export function TeckStack() {
                     {tech.theme ? (
                       <>
                         <Image
-                          src={`http://svg-images-api-production.up.railway.app/images/${tech.key}-light.svg`}
+                          src={`https://ccimageapi.netlify.app/images/${tech.key}-light.svg`}
                           alt={`${tech.title} light icon`}
                           width={32}
                           height={32}
@@ -32,7 +32,7 @@ export function TeckStack() {
                           unoptimized
                         />
                         <Image
-                          src={`http://svg-images-api-production.up.railway.app/images/${tech.key}-dark.svg`}
+                          src={`https://ccimageapi.netlify.app/images/${tech.key}-dark.svg`}
                           alt={`${tech.title} dark icon`}
                           width={32}
                           height={32}
@@ -42,7 +42,7 @@ export function TeckStack() {
                       </>
                     ) : (
                       <Image
-                        src={`http://svg-images-api-production.up.railway.app/images/${tech.key}.svg`}
+                        src={`https://ccimageapi.netlify.app/images/${tech.key}.svg`}
                         alt={`${tech.title} icon`}
                         width={32}
                         height={32}
