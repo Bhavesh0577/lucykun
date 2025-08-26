@@ -1,0 +1,109 @@
+---
+title: 'Hackonnect: AI-Powered Hackathon Co-Pilot'
+description: 'An AI-driven platform that helps hackathon participants discover events, generate ideas, visualize architectures, form teams, collaborate in real time, and source resources intelligently.'
+technologies: [
+  'Next.js',
+  'React',
+  'TypeScript',
+  'Tailwind CSS',
+  'Shadcn UI',
+  'React Flow',
+  'Prisma',
+  'NeonDB',
+  'Socket.IO',
+  'Clerk',
+  'Perplexity API'
+]
+category: 'AI & Developer Tools'
+status: 'completed'
+githubUrl: 'https://github.com/Bhavesh0577/project'
+liveUrl: 'https://hackonnect.tech'
+featured: false
+createdAt: '2025-01-01'
+---
+
+## Project Overview
+
+HackFlow is an intelligent co-pilot for hackathons. It streamlines the entire lifecycle: discovering relevant hackathons, generating and refining ideas, visualizing project flows, assembling teams, collaborating live, and gathering AI-curated resources—reducing friction and accelerating innovation.
+
+## Inspiration
+
+Common pain points:
+- Idea paralysis
+- Noisy hackathon discovery
+- Team formation friction
+- Unstructured planning
+- Hard-to-find APIs/datasets
+- Lack of competitive insight
+
+HackFlow solves these with focused AI assistance and collaborative tooling.
+
+## Core Features
+
+### 🚀 AI Hackathon Finder
+- Uses Perplexity (sonar-pro) to fetch and rank hackathons (Devpost, Devfolio, DoraHacks, etc.)
+- Personalized by interests, themes, tech focus
+
+### 💡 AI Idea Generator
+- Deep research (sonar-deep-research) to expand prompts into:
+  - Problem framing
+  - Use cases
+  - Feature sets
+  - Suggested stacks
+
+### 🗺 Project Flowchart Generator
+- Transforms ideas into interactive flow diagrams via React Flow
+- Modules, dependencies, data flow
+
+### 🛠 AI Resource Hub
+- Curated APIs, datasets, tools, learning links
+- Structured JSON responses for consistent rendering
+
+### 🔍 Competitive Analysis (Concept / Partial)
+- Planned: Compare against past winners for uniqueness and impact
+
+### 👥 Team Collaboration
+- Team profiles (skills, roles, availability)
+- Real-time chat (Socket.IO)
+- Skill- & interest-based teammate discovery (roadmap)
+
+### 🔐 Authentication
+- Clerk for secure session + user management
+
+### 🔄 Real-Time
+- Socket.IO channel per team for chat & presence
+
+### 📊 Sustainability / Impact (Planned Extension)
+- Future scoring for environmental and social impact
+
+## Technical Architecture
+
+### Frontend
+- Next.js (App Router), React, TypeScript
+- Tailwind + Shadcn UI
+- Client + Server Components composition
+- React Flow for diagramming
+
+### Backend / API
+- Next.js API Routes (serverless)
+- AI orchestration layer wrapping Perplexity endpoints
+- Structured prompt templates + response validators
+
+### AI Integration
+- Perplexity API:
+  - sonar-pro: listing + resources
+  - sonar-deep-research: idea expansion
+- (Pluggable design for future models)
+
+### Data Layer
+- NeonDB (Serverless PostgreSQL)
+- Prisma (type-safe queries, migrations)
+- Models: Idea, TeamMessage, TeamProfile (+ extensible)
+
+### Realtime Layer
+- Socket.IO namespace per team
+- Graceful reconnect + broadcast
+
+### Auth
+- Clerk JWT session
+- Middleware guards on protected routes

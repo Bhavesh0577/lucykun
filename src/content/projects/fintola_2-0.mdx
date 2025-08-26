@@ -1,0 +1,136 @@
+---
+title: 'Fintola 2.0 – Live Stock & Strategy Dashboard'
+description: 'A real-time trading intelligence dashboard providing live market data, intraday & delivery strategies, AI-driven insights (Gemini), and technical analysis tooling.'
+technologies:
+  [
+    'Next.js',
+    'React',
+    'TypeScript',
+    'Tailwind CSS',
+    'WebSockets',
+    'REST / Streaming APIs',
+    'Prisma',
+    'PostgreSQL',
+    'Gemini API',
+    'Trading Indicators Engine'
+  ]
+category: 'FinTech'
+status: 'completed'
+githubUrl: 'https://github.com/Bhavesh0577/fintola_2.0'
+liveUrl: 'https://fintola-2-0.vercel.app'
+featured: true
+createdAt: '2024-11-15'
+---
+
+## Overview
+
+Fintola 2.0 is a real-time trading intelligence dashboard that helps active
+traders monitor live market movements, evaluate intraday and delivery (positional)
+strategies, and generate AI-assisted trade insights. It merges streaming price
+data, technical indicator computation, and Gemini-powered narrative analysis to
+support more informed decision-making. (Not financial advice.)
+
+## Core Capabilities
+
+### 📈 Live Market Data
+- Real-time price streaming for selected equities
+- Bid/ask snapshots and last traded price movements
+- High/low, % change, volume, VWAP (where available)
+- Auto-refresh with throttled WebSocket / SSE handling
+
+### 🧠 AI Insights (Gemini)
+- Natural‑language summaries of market context
+- Buy / sell inclination with reasoning (risk-weighted)
+- Strategy alignment (intraday vs delivery)
+- Sentiment & momentum interpretation
+- Risk warnings and confidence scoring
+
+### 🧪 Strategy Engine
+- Intraday momentum & breakout model
+- Delivery (swing / positional) trend confirmation
+- Customizable indicator thresholds (e.g. RSI, EMA crossovers)
+- Multi-timeframe confluence checks
+- Risk/reward and stop-loss suggestion logic
+
+### 📊 Technical Analysis
+- Indicator overlays: EMA / SMA stacks, RSI, MACD, VWAP*
+- Support / resistance zone detection*
+- Candlestick pattern tagging*
+- Volume profile & relative volume flags*
+- Backtest skeleton for extending strategy validation
+(* where implemented or in progress)
+
+### 🔔 Alerts & Signals
+- Threshold & crossover triggers
+- Strategy alignment signals (enter / watch / exit)
+- Risk management prompts (trail / tighten / reduce)
+- Debounced notification pipeline to avoid noise
+
+## Architecture
+
+- Frontend: Next.js (App Router) + React server & client components
+- Data Layer: WebSocket / SSE streaming + REST fallbacks
+- Backend Services: API routes for symbol lookup, strategy evaluation, AI prompt orchestration
+- Database: PostgreSQL via Prisma (watchlists, user preferences, cached indicator snapshots)
+- AI Integration: Gemini API (structured prompts with system + context + constraints)
+- Styling: Tailwind CSS + utility-driven responsive layout
+- State Management: Lightweight client state + server components + SWR/React Query (if used)
+- Caching: In-memory + incremental static regeneration (for non-live pages)
+
+## Data Flow
+
+1. User selects / watches symbols
+2. Stream handler ingests live ticks (normalized)
+3. Indicator & strategy engine computes derived metrics
+4. Snapshot persisted (batched) for historical context
+5. AI prompt builder composes summary (symbol + indicators + strategy status)
+6. Gemini returns structured JSON / text → rendered into UI panels
+7. Alerts emitted when rules fire
+
+## Performance & Reliability
+
+- Connection health monitoring & auto-reconnect
+- Rate limiting + debounce for AI prompt invocations
+- Batched DB writes to reduce churn
+- Lazy loading heavy analysis panels
+- Memoized indicator computations per symbol frame
+
+## Security & Compliance
+
+- Environment-isolated API keys
+- Input sanitization for AI prompt context
+- Least-privilege DB access via Prisma schema scoping
+- No PII storage (only user config + watchlists)
+
+## Challenges & Solutions
+
+### Real-time Stability
+Managed reconnect storms with exponential backoff and sequence gap reconciliation.
+
+### Indicator Computation Load
+Introduced caching layers and incremental recalculation (only on new ticks).
+
+### AI Hallucination Mitigation
+Used structured prompts + explicit constraints + confidence extraction parsing.
+
+### Strategy Interpretability
+Displayed raw indicator values alongside AI narrative for user trust.
+
+## Future Enhancements
+
+- [ ] Full backtesting module with equity curve
+- [ ] Multi-broker order placement integration
+- [ ] Options chain analytics
+- [ ] Portfolio risk aggregation
+- [ ] Mobile-optimized condensed layout
+- [ ] More advanced ML-based anomaly detection
+
+## Lessons Learned
+
+Building Fintola 2.0 reinforced the importance of:
+- Clear separation between raw market data and derived analytics
+- Guardrails for AI output (never execute trades automatically)
+- Performance budgeting for streaming UIs
+- Transparent strategy logic to build user confidence
+
+Not financial advice. Users should verify signals independently.
