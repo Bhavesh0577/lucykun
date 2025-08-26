@@ -1,0 +1,107 @@
+---
+title: 'OEM Vulnerability Scanner'
+description: 'AI-powered vulnerability scanner monitoring multi-OEM sources with intelligent analysis, prioritization, mitigation planning, and automated notifications.'
+technologies:
+  [
+    'Streamlit',
+    'Python',
+    'SQLite',
+    'Playwright',
+    'BeautifulSoup',
+    'Requests',
+    'Plotly',
+    'Google Gemini 2.0 Flash',
+    'SMTP'
+  ]
+category: 'Security & Vulnerability Management'
+status: 'in-progress'
+githubUrl: 'https://github.com/Bhavesh0577/vulscrap'
+liveUrl: 'https://threatintelligenc.streamlit.app'
+featured: false
+createdAt: '2025-01-20'
+---
+
+## Project Overview
+
+OEM Vulnerability Scanner is a comprehensive AI‑assisted security monitoring platform that aggregates critical vulnerabilities from 10+ OEM and authoritative sources, performs automated enrichment, prioritization, mitigation planning, and delivers real-time notifications with role‑aware reporting.
+
+## Supported Sources
+
+- NVD (API)
+- CISA KEV Catalog
+- Microsoft Security Response Center
+- Cisco Security Advisories
+- Google Cloud Security Bulletins
+- Oracle Security Alerts
+- VMware Security Advisories
+- IBM Security Bulletins
+- Adobe Security Bulletins
+- HPE Security Bulletins
+
+## Core Features
+
+### 🔍 Multi-Source Collection
+- Parallel ingestion of 10+ OEM feeds
+- Automated de-duplication (by CVE)
+- Incremental discovery with timestamp tracking
+
+### 🤖 AI-Powered Analysis (Gemini 2.0 Flash)
+- Plain-language vulnerability summaries
+- Technical + business impact assessment
+- Exploitability / attack vector evaluation
+- Context-aware prioritization (1–10)
+- Automated mitigation & remediation strategy
+- Audience-specific (Engineer / Exec / Compliance) reports
+- Enhanced threat intelligence enrichment
+
+### ⚙️ Smart Prioritization
+- Severity + exploit status + publication recency
+- Organizational context weighting (extensible)
+- Risk scoring rationale and remediation timeframe
+
+### 📥 Data Management
+- SQLite storage with uniqueness on CVE
+- Timestamped discovery + notification flags
+- CSV export (global or filtered)
+
+### 📊 Interactive Streamlit Dashboard
+- Real-time vulnerability feed
+- Severity, OEM, date-range filtering
+- Trend charts, distributions, heatmaps
+- AI enrichment panel
+- On-demand CSV export
+
+### 📧 Email Notification System
+- Automated alerts for Critical / High
+- HTML formatted content + optional AI insights
+- Multiple managed recipients
+- CSV attachment option
+- Test notification workflow
+
+### 🧠 Mitigation Planning
+- Immediate actions
+- Long-term remediation steps
+- Compensating controls
+- Resource estimation
+- Verification procedures
+
+## Technology Stack
+
+- Frontend: Streamlit
+- Backend: Python 3.8+
+- Data: SQLite
+- AI: Google Gemini 2.0 Flash
+- Scraping: Playwright (JS-required), BeautifulSoup, Requests
+- Visualization: Plotly
+- Email: SMTP (HTML)
+
+## Architecture Overview
+
+1. Source Registry (OEM_SOURCES) defines extraction strategy
+2. Scraper Orchestrator runs selected sources (Playwright where needed)
+3. Normalization layer maps raw fields → unified schema
+4. AI Enrichment pipeline (optional / cached)
+5. Persistence layer (SQLite) with de-duplication on CVE
+6. Notification dispatcher (severity + state aware)
+7. Streamlit UI queries + visualizes + exports
+8. CLI entry point for headless automation / cron
