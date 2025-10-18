@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import ThemeToggle from '@/components/theme-toggle'
+import { Button } from '@/components/ui/button'
 
 export default function Header() {
   return (
@@ -23,7 +24,12 @@ export default function Header() {
           </li>
         </ul>
 
-        <div>
+        <div className='flex items-center gap-3'>
+          <Button asChild size='sm' variant='outline'>
+            <a href='/resume.pdf' target='_blank' rel='noopener noreferrer'>
+              Resume
+            </a>
+          </Button>
           <ThemeToggle />
         </div>
       </nav>
