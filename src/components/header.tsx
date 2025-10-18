@@ -26,7 +26,7 @@ export default function Header() {
 
         <div className='flex items-center gap-3'>
           <Button asChild size='sm' variant='outline'>
-            <a href='/resume.pdf' target='_blank' rel='noopener noreferrer'>
+            <a href='https://drive.google.com/file/d/1FLK0BxG1aaXP6G8D-QedVguqRXAm-3rW/view?usp=sharing' target='_blank' rel='noopener noreferrer'>
               Resume
             </a>
           </Button>
