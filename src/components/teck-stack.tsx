@@ -6,7 +6,7 @@ import { TECH_STACK } from "@/lib/tech-stack";
 
 export function TeckStack() {
   return (
-    <section className='pb-24 pt-20'>
+    <section>
       <div className='mt-2 flex-1 md:mt-0'>
         <h1 className='title mb-10'>Stack</h1>
 
