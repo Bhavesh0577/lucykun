@@ -1,7 +1,6 @@
 import Intro from "@/components/intro";
 import RecentPosts from "@/components/recent-posts";
 import RecentProjects from "@/components/recent-projects";
-import Experience from "@/components/experience";
 import { TeckStack } from "@/components/teck-stack";
 
 export default function Home() {
@@ -11,7 +10,6 @@ export default function Home() {
         <Intro />
         <TeckStack />
         <RecentProjects />
-        <Experience />
         <RecentPosts />
       </div>
     </section>
