@@ -20,6 +20,7 @@ export function TeckStack() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={tech.title}
+                    className="transition-transform duration-200 hover:scale-125 focus:outline-none"
                   >
                     {tech.theme ? (
                       <>
