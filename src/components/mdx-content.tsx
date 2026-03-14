@@ -1,26 +1,21 @@
-import { JSX } from "react";
-import {highlight } from 'sugar-high'
-import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc'
-
+import { highlight } from 'sugar-high'
+import { evaluate } from '@mdx-js/mdx'
+import * as runtime from 'react/jsx-runtime'
 import Counter from '@/components/counter'
 
-function Code ({children, ...props} : any){
-    let codeHTML = highlight(children)
-    return <code dangerouslySetInnerHTML={{__html: codeHTML}} {...props} />
+function Code({ children, ...props }: any) {
+    const codeHTML = highlight(children)
+    return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
 }
 
 const components = {
     code: Code,
-    Counter
+    Counter,
 }
 
-export default function MDXContent (
-    props : JSX.IntrinsicAttributes & MDXRemoteProps
-) {
-    return (
-        <MDXRemote
-            {...props}
-            components={{ ...components, ...(props.components || {})}}
-        />
-    )
+export default async function MDXContent({ source }: { source: string }) {
+    const { default: Content } = await evaluate(source, {
+        ...(runtime as any),
+    })
+    return <Content components={components as any} />
 }
