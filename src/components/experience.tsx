@@ -1,13 +1,23 @@
 import { Badge } from "@/components/ui/badge";
 
 const experiences = [
+    {
+    company: "Broadridge",
+    companyUrl: "https://www.broadridge.com/",
+    role: "Member Technical",
+    date: "Jul - Present",
+    current: true,
+    description: "Working as a full-time engineer on Broadridge’s internal enterprise platform and agent layer, contributing to the development of scalable enterprise solutions. I am also part of the product team for MBSE, collaborating across functions to build and evolve platform capabilities with a strong focus on reliability and business impact.",
+    skills: ["Java", "Spring Boot", "Sybase", "React", "Python", "FastAPI", "Vector DB", "SQL"]
+  },
   {
     company: "Broadridge",
     companyUrl: "https://www.broadridge.com/",
     role: "Intern",
-    date: "Present",
-    description: "Built and shipped an internal tool that handles real production traffic — including a custom load balancer — actively used by an internal team of 50–60 people. The tool is currently being expanded to support cross-functional teams across the org.",
-    skills: ["TypeScript", "Next.js", "React", "Node.js", "Python", "FastAPI", "PostgreSQL"]
+    date: "Jan - Jun",
+    current: false,
+    description: "Worked as an intern at Broadridge, contributing to internal platform and product initiatives while building hands-on experience in enterprise software development and cross-functional collaboration.",
+    skills: ["Java", "Spring Boot", "React", "Python", "FastAPI"]
   }
 ];
 
@@ -36,13 +46,17 @@ export default function Experience() {
                 </a>
               </div>
 
-              {/* Current role badge with pulsing dot */}
-              <div className="flex items-center gap-1.5 rounded-full border border-green-500/30 bg-green-500/10 px-2.5 py-0.5 w-fit shrink-0">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
-                </span>
-                <span className="text-xs font-medium text-green-600 dark:text-green-400">{exp.date}</span>
+              {/* Date badge */}
+              <div className={`flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 w-fit shrink-0 ${exp.current ? "border-green-500/30 bg-green-500/10" : "border-muted-foreground/20 bg-background/60"}`}>
+                {exp.current ? (
+                  <>
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+                    </span>
+                  </>
+                ) : null}
+                <span className={`text-xs font-medium ${exp.current ? "text-green-600 dark:text-green-400" : "text-muted-foreground"}`}>{exp.date}</span>
               </div>
             </div>
 
