@@ -30,7 +30,7 @@ export default function Intro() {
       <div className='flex flex-wrap items-center gap-3'>
         <Button asChild size='sm' className='gap-2 rounded-full px-5'>
           <a
-            href='https://drive.google.com/file/d/1mpVtFd2iUmPR-R0se4_R30QWoTGdJ49l/view?usp=sharing'
+            href='https://drive.google.com/file/d/1fiC4tX3cc7XAoQwjj-4hBrNCNgPwjDtV/view?usp=sharing'
             target='_blank'
             rel='noopener noreferrer'
           >
